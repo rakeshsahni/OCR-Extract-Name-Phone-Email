@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./../static/style/index.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <title>Extract Name, Email And Phone Number</title>
+  </head>
+
+  <body>
+    <div class="main">
+      <!-- for header image and tools info -->
+      <h1 style="text-align: center" class="head">
+        Welcome To Extract Name, Email And <br />Phone Number App
+      </h1>
+
+      {% for mesg in get_flashed_messages() %}
+      <h3>{{ mesg }}</h3>
+      {% endfor %}
+
+      <div>
+        <form
+          action=""
+          method="post"
+          enctype="multipart/form-data"
+          class="formDiv"
+        >
+          <!-- Enter Image -->
+          <label for="document_image" class="form-label mb-2">
+            Upload Image
+          </label>
+
+          <input
+            type="file"
+            id="document_image"
+            name="document_image"
+            class="form-control mb-2"
+            accept="image/png, image/jpg, image/jpeg"
+          />
+
+          <p class="or mx-auto fw-bold">OR</p>
+
+          <input
+            class="form-control mb-2"
+            type="url"
+            id="document_image_url"
+            name="document_image_url"
+            placeholder="Enter Image URL"
+          />
+
+          <button class="btn btn-success" type="submit">Submit</button>
+        </form>
+      </div>
+
+      <hr />
+
+      {% if image_path %}
+      <div class="picture mt-5 flex-sm-row flex-column ">
+        <!-- <h1>{{image_path}}</h1> -->
+        <img
+          class="img-fluid mb-3"
+          src="{{image_path}}"
+          alt="Actual Image"
+        />
+        <img
+          class="img-fluid"
+          src="{{OCR_image_path}}"
+          alt="OCR Image"
+        />
+      </div>
+
+      <hr />
+
+      <div class="mt-4 table_scroll "  >
+        <h2>Card Information</h2>
+
+        <table class="table table-borderless">
+          <tbody>
+            {% for itm in dic_%}
+
+            <tr>
+              <td><strong>{{itm}}</strong></td>
+              {% for ele in dic_[itm] %}
+              <td class="text-start">{{ele}}</td>
+              {% endfor %}
+            </tr>
+
+            {% endfor %}
+          </tbody>
+        </table>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>
