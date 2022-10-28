@@ -1,3 +1,7 @@
+
+
+https://user-images.githubusercontent.com/80037791/198703605-96f94856-d62e-4192-8de1-e4b711bd353a.mp4
+
 # OCR-Extract-Name-Phone-Email
 
 Hi! I am Rakesh Sahni B.E Final year computer science.
