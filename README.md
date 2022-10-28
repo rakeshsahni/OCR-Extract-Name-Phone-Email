@@ -6,24 +6,24 @@ Out website : https://sohipm.com
 #### used library
 flask, cv2, easyocr, spacy, requests, numpy, pandas, matplotlib etc.
 
+#### Intro : 
+In this app if we will upload  business cards / visiting cards then our DL ( deep learning model ) will return name, company name, contact number and email id of corresponding card. 
 
 process to build this app
 
-1.) First stage is undoubtly data acquisition
+1.) To build this app I have used easyocr which is nothing but a font-dependent printed character reader based on a template matching algorithm.
 
-Before jump any calculation we need to clean data first of all using spacy ( NLP )
+2.) This EasyOCR return all texts which is found into inserted Image.
 
-2.) In NLP data cleaning and data munging is one of the crucial part we have to remove punctuation, stop words, html tag. spell correct etc. To do so i have used spacy nlp library
+3.) After If we had all texts which is in given images then we will apply Named Entity Recognition (NER).
 
-3.) I also consider imdb rating and imdb votes which is present in numeric form i converted to categorical form like low_raing, medium_rating, high_rating, very_high_rating
+4.) With the help of Spacy NLP library I would applyed NER ( Name Entity Recognition ) to see extract Name of Person and Name of Company.
 
-4.) Once data preproces complited after that i create tag for each movie on the basis of movie story, summary, rating, votes, genres and actors.
+5.) See we have to also extract Email and Phone Number right. In that situation I have used RegEx ( re ) python pattern matching.
 
-5.) After creating tags for each movie then I have converted these tags into vectors using CountVectorizer and TfidfVectorizer
+6.) At end I have show two image one is original and other is OCR image which is detect all texts and also show a table in which company_name, person_name, contact_num and emails details show.
 
-6.) Once created vector for each movie it is easy to find similarity between two vector means two movies using cosine similarity ( cosine_similarity ).
-
-7.) At end sort the similarity and extract top 5 movies among all movies and that movie show in our flask app.
+7.) Deployment To build A Web App with the help of Flask and do some HTML and CSS for design which is shown in Given Video.
 
 ## Installation
 
